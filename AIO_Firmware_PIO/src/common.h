@@ -119,4 +119,7 @@ TFT pins should be set in path/to/Arduino/libraries/TFT_eSPI/User_Setups/Setup24
 extern TFT_eSPI *tft;
 #endif
 
+/* MINECRAFT */
+#define MINECRAFT 1
+
 #endif

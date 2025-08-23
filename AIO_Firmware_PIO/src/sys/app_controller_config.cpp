@@ -22,7 +22,11 @@ void AppController::read_config(SysUtilConfig *cfg)
         cfg->rotation = 4;             // 屏幕旋转方向
         cfg->auto_calibration_mpu = 1; // 是否自动校准陀螺仪 0关闭自动校准 1打开自动校准
         cfg->mpu_order = 0;            // 操作方向
-        cfg->auto_start_app = "Media";  // 无指定开机自启APP
+#ifndef MINECRAFT
+        cfg->auto_start_app = "None";  // 无指定开机自启APP
+#else
+        cfg->auto_start_app = "Media";  // MC指定开机自启APP为Media
+#endif
         this->write_config(cfg);
     }
     else

@@ -341,6 +341,12 @@ static void media_player_message_handle(const char *from, const char *to,
     }
 }
 
+#ifndef MINECRAFT
 APP_OBJ media_app = {MEDIA_PLAYER_APP_NAME, &app_movie, "",
                      media_player_init, media_player_process, media_player_background_task,
                      media_player_exit_callback, media_player_message_handle};
+#else
+APP_OBJ media_app = {MEDIA_PLAYER_APP_NAME, &app_movie_mc, "",
+                     media_player_init, media_player_process, media_player_background_task,
+                     media_player_exit_callback, media_player_message_handle};
+#endif
