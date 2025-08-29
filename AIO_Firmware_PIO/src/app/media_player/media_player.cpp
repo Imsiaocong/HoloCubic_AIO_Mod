@@ -250,8 +250,20 @@ static void media_player_process(AppController *sys,
         // 结束播放
         release_player_decoder();
         run_data->file.close();
-        // 默认重复播放当前视频
-        video_start(false);
+        #ifndef MINECRAFT
+            if (0 == cfg_data.switchFlag)
+            {
+                // 创建播放(重复播放)
+                video_start(false);
+            }
+            else
+            {
+                // 创建播放(播放下一个)
+                video_start(true);
+            }
+        #else
+            video_start(false); // Minecraft模式下 只循环播放当前视频
+        #endif
     }
 }
 
